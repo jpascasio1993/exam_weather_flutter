@@ -106,8 +106,8 @@ class __$$_ResultSuccessCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_ResultSuccess<T> extends _ResultSuccess<T> {
-  const _$_ResultSuccess(this.data) : super._();
+class _$_ResultSuccess<T> implements _ResultSuccess<T> {
+  const _$_ResultSuccess(this.data);
 
   @override
   final T data;
@@ -193,9 +193,8 @@ class _$_ResultSuccess<T> extends _ResultSuccess<T> {
   }
 }
 
-abstract class _ResultSuccess<T> extends Result<T> {
+abstract class _ResultSuccess<T> implements Result<T> {
   const factory _ResultSuccess(final T data) = _$_ResultSuccess<T>;
-  const _ResultSuccess._() : super._();
 
   T get data;
   @JsonKey(ignore: true)
@@ -236,8 +235,8 @@ class __$$_ResultExceptionCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_ResultException<T> extends _ResultException<T> {
-  const _$_ResultException(this.exception) : super._();
+class _$_ResultException<T> implements _ResultException<T> {
+  const _$_ResultException(this.exception);
 
   @override
   final Exception exception;
@@ -324,10 +323,9 @@ class _$_ResultException<T> extends _ResultException<T> {
   }
 }
 
-abstract class _ResultException<T> extends Result<T> {
+abstract class _ResultException<T> implements Result<T> {
   const factory _ResultException(final Exception exception) =
       _$_ResultException<T>;
-  const _ResultException._() : super._();
 
   Exception get exception;
   @JsonKey(ignore: true)
