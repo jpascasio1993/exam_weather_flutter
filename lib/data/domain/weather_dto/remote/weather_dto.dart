@@ -1,5 +1,5 @@
-import 'package:exam_weather_flutter/data/domain/weatherStatsDTO/weather_stats_dto.dart';
-import 'package:exam_weather_flutter/data/domain/weatherTempDTO/weather_temp_dto.dart';
+import 'package:exam_weather_flutter/data/domain/weather_stats_dto/remote/weather_stats_dto.dart';
+import 'package:exam_weather_flutter/data/domain/weather_temp_dto/remote/weather_temp_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'weather_dto.freezed.dart';

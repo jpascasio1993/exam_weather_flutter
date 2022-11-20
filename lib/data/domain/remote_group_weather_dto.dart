@@ -1,4 +1,4 @@
-import 'package:exam_weather_flutter/data/domain/weatherDTO/weather_dto.dart';
+import 'package:exam_weather_flutter/data/domain/weather_dto/remote/weather_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'remote_group_weather_dto.freezed.dart';
