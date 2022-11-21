@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Result<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(T data) success,
+    required TResult Function(T? data) success,
     required TResult Function(Exception exception) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(T data)? success,
+    TResult? Function(T? data)? success,
     TResult? Function(Exception exception)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(T data)? success,
+    TResult Function(T? data)? success,
     TResult Function(Exception exception)? error,
     required TResult orElse(),
   }) =>
@@ -79,7 +79,7 @@ abstract class _$$_ResultSuccessCopyWith<T, $Res> {
           _$_ResultSuccess<T> value, $Res Function(_$_ResultSuccess<T>) then) =
       __$$_ResultSuccessCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({T data});
+  $Res call({T? data});
 }
 
 /// @nodoc
@@ -93,13 +93,13 @@ class __$$_ResultSuccessCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$_ResultSuccess<T>(
-      null == data
+      freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as T,
+              as T?,
     ));
   }
 }
@@ -110,7 +110,7 @@ class _$_ResultSuccess<T> implements _ResultSuccess<T> {
   const _$_ResultSuccess(this.data);
 
   @override
-  final T data;
+  final T? data;
 
   @override
   bool operator ==(dynamic other) {
@@ -133,7 +133,7 @@ class _$_ResultSuccess<T> implements _ResultSuccess<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(T data) success,
+    required TResult Function(T? data) success,
     required TResult Function(Exception exception) error,
   }) {
     return success(data);
@@ -142,7 +142,7 @@ class _$_ResultSuccess<T> implements _ResultSuccess<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(T data)? success,
+    TResult? Function(T? data)? success,
     TResult? Function(Exception exception)? error,
   }) {
     return success?.call(data);
@@ -151,7 +151,7 @@ class _$_ResultSuccess<T> implements _ResultSuccess<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(T data)? success,
+    TResult Function(T? data)? success,
     TResult Function(Exception exception)? error,
     required TResult orElse(),
   }) {
@@ -194,9 +194,9 @@ class _$_ResultSuccess<T> implements _ResultSuccess<T> {
 }
 
 abstract class _ResultSuccess<T> implements Result<T> {
-  const factory _ResultSuccess(final T data) = _$_ResultSuccess<T>;
+  const factory _ResultSuccess(final T? data) = _$_ResultSuccess<T>;
 
-  T get data;
+  T? get data;
   @JsonKey(ignore: true)
   _$$_ResultSuccessCopyWith<T, _$_ResultSuccess<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -263,7 +263,7 @@ class _$_ResultException<T> implements _ResultException<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(T data) success,
+    required TResult Function(T? data) success,
     required TResult Function(Exception exception) error,
   }) {
     return error(exception);
@@ -272,7 +272,7 @@ class _$_ResultException<T> implements _ResultException<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(T data)? success,
+    TResult? Function(T? data)? success,
     TResult? Function(Exception exception)? error,
   }) {
     return error?.call(exception);
@@ -281,7 +281,7 @@ class _$_ResultException<T> implements _ResultException<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(T data)? success,
+    TResult Function(T? data)? success,
     TResult Function(Exception exception)? error,
     required TResult orElse(),
   }) {

@@ -3,6 +3,7 @@ import 'package:exam_weather_flutter/data/domain/weather_temp_dto/remote/weather
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'weather_dto.freezed.dart';
+
 part 'weather_dto.g.dart';
 
 @freezed

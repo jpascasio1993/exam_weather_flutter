@@ -13,8 +13,8 @@ class FavoritesDao extends DatabaseAccessor<AppDatabase> with _$FavoritesDaoMixi
     favorites.insertOne(FavoritesCompanion.insert(weatherId: Value(id)), mode: InsertMode.replace);
   });
 
-  Future<void> removeFavorite(LocalWeatherDTO localWeatherDTO) => transaction(() => delete(favorites).delete(FavoritesCompanion(
-    weatherId: Value(localWeatherDTO.id)
+  Future<void> removeFavorite(int id) => transaction(() => delete(favorites).delete(FavoritesCompanion(
+    weatherId: Value(id)
   )));
 
 }

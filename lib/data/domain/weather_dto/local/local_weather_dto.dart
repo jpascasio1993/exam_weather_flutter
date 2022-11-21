@@ -1,12 +1,15 @@
+import 'package:exam_weather_flutter/data/domain/weather/weather.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'local_weather_dto.freezed.dart';
+
 part 'local_weather_dto.g.dart';
 
 @freezed
 class LocalWeatherDTO with _$LocalWeatherDTO {
+  LocalWeatherDTO._();
   @JsonSerializable(explicitToJson: true)
-  const factory LocalWeatherDTO({
+  factory LocalWeatherDTO({
     required int id,
     @Default('N/A') String city,
     @Default('N/A') String status,
@@ -18,4 +21,5 @@ class LocalWeatherDTO with _$LocalWeatherDTO {
 
   factory LocalWeatherDTO.fromJson(Map<String, dynamic> json) => _$LocalWeatherDTOFromJson(json);
 
+  Weather toDomain() => Weather.fromJson(toJson());
 }
