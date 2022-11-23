@@ -1,10 +1,3 @@
-import 'package:dio/dio.dart';
-import 'package:exam_weather_flutter/data/database/dao/favorites_dao.dart';
-import 'package:exam_weather_flutter/data/database/dao/weather_dao.dart';
-import 'package:exam_weather_flutter/data/database/database.dart';
-import 'package:exam_weather_flutter/data/repository/weather_repository/i_weather_repository.dart';
-import 'package:exam_weather_flutter/data/repository/weather_repository/weather_repository.dart';
-import 'package:exam_weather_flutter/data/services/weather_service.dart';
 import 'package:exam_weather_flutter/di/i_dependencies.dart';
 import 'package:injectable/injectable.dart';
 
