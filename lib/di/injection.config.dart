@@ -14,9 +14,12 @@ import '../data/database/dao/weather_dao.dart' as _i5;
 import '../data/database/database.dart' as _i3;
 import '../data/repository/weather_repository/i_weather_repository.dart' as _i8;
 import '../data/services/weather_service.dart' as _i7;
-import 'core/core_dependencies.dart' as _i9;
-import 'dev/dev_dependencies.dart' as _i11;
-import 'prod/prod_dependencies.dart' as _i10;
+import '../ui/weathers/bloc/weather_bloc/weather_bloc.dart' as _i9;
+import '../ui/weathers/bloc/weather_details_bloc/weather_details_bloc.dart'
+    as _i10;
+import 'core/core_dependencies.dart' as _i11;
+import 'dev/dev_dependencies.dart' as _i13;
+import 'prod/prod_dependencies.dart' as _i12;
 
 const String _prod = 'prod';
 const String _dev = 'dev';
@@ -75,26 +78,25 @@ _i1.GetIt $initGetIt(
         baseUrl: get<String>(instanceName: 'api_base_url'),
         apiKey: get<String>(instanceName: 'api_key'),
       ));
-  gh.lazySingleton<_i7.WeatherService>(
-    () => coreConfiguration.weatherService(
-      dio: get<_i6.Dio>(),
-      baseUrl: get<String>(instanceName: 'api_base_url'),
-    ),
-    registerFor: {_prod},
-  );
+  gh.lazySingleton<_i7.WeatherService>(() => coreConfiguration.weatherService(
+        dio: get<_i6.Dio>(),
+        baseUrl: get<String>(instanceName: 'api_base_url'),
+      ));
   gh.lazySingleton<_i8.IWeatherRepository>(
-    () => coreConfiguration.weatherRepository(
-      weatherDao: get<_i5.WeatherDao>(),
-      favoritesDao: get<_i4.FavoritesDao>(),
-      weatherService: get<_i7.WeatherService>(),
-    ),
-    registerFor: {_prod},
-  );
+      () => coreConfiguration.weatherRepository(
+            weatherDao: get<_i5.WeatherDao>(),
+            favoritesDao: get<_i4.FavoritesDao>(),
+            weatherService: get<_i7.WeatherService>(),
+          ));
+  gh.lazySingleton<_i9.WeatherBloc>(() => coreConfiguration.weatherBloc(
+      weatherRepository: get<_i8.IWeatherRepository>()));
+  gh.lazySingleton<_i10.WeatherDetailsBloc>(() => coreConfiguration
+      .weatherDetailsBloc(weatherRepository: get<_i8.IWeatherRepository>()));
   return get;
 }
 
-class _$CoreConfiguration extends _i9.CoreConfiguration {}
+class _$CoreConfiguration extends _i11.CoreConfiguration {}
 
-class _$ProdDependencies extends _i10.ProdDependencies {}
+class _$ProdDependencies extends _i12.ProdDependencies {}
 
-class _$DevDependencies extends _i11.DevDependencies {}
+class _$DevDependencies extends _i13.DevDependencies {}

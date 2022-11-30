@@ -4,10 +4,10 @@ part 'request_state.freezed.dart';
 
 @freezed
 class RequestState<T> with _$RequestState<T> {
-  const factory RequestState.init() = _RequestStateInit;
-  const factory RequestState.success(T data) = _RequestStateSuccess;
-  const factory RequestState.error(Exception exception) = _RequestStateException;
-  const factory RequestState.loading({String? message}) = _RequestStateLoading;
+  const factory RequestState.init() = _RequestStateInit<T>;
+  const factory RequestState.success(T data) = _RequestStateSuccess<T>;
+  const factory RequestState.error(Exception exception) = _RequestStateException<T>;
+  const factory RequestState.loading({String? message}) = _RequestStateLoading<T>;
 
   @override
   String toString() {

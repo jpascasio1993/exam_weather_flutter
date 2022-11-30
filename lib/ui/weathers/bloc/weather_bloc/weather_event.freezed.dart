@@ -16,49 +16,49 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$WeatherEvent {
-  int get id => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) getWeatherFromRemote,
-    required TResult Function(int id) getWeather,
+    required TResult Function() getWeathers,
+    required TResult Function(int id, bool isFavorite) setFavorite,
+    required TResult Function(List<Weather> weathers) updateWeathers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? getWeatherFromRemote,
-    TResult? Function(int id)? getWeather,
+    TResult? Function()? getWeathers,
+    TResult? Function(int id, bool isFavorite)? setFavorite,
+    TResult? Function(List<Weather> weathers)? updateWeathers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? getWeatherFromRemote,
-    TResult Function(int id)? getWeather,
+    TResult Function()? getWeathers,
+    TResult Function(int id, bool isFavorite)? setFavorite,
+    TResult Function(List<Weather> weathers)? updateWeathers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WeatherEventGetFromRemote value)
-        getWeatherFromRemote,
-    required TResult Function(_WeatherEventGetFromLocal value) getWeather,
+    required TResult Function(_WeatherEventGetWeathers value) getWeathers,
+    required TResult Function(_WeatherEventSetFavorite value) setFavorite,
+    required TResult Function(_WeatherEventUpdateWeathers value) updateWeathers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_WeatherEventGetFromRemote value)? getWeatherFromRemote,
-    TResult? Function(_WeatherEventGetFromLocal value)? getWeather,
+    TResult? Function(_WeatherEventGetWeathers value)? getWeathers,
+    TResult? Function(_WeatherEventSetFavorite value)? setFavorite,
+    TResult? Function(_WeatherEventUpdateWeathers value)? updateWeathers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WeatherEventGetFromRemote value)? getWeatherFromRemote,
-    TResult Function(_WeatherEventGetFromLocal value)? getWeather,
+    TResult Function(_WeatherEventGetWeathers value)? getWeathers,
+    TResult Function(_WeatherEventSetFavorite value)? setFavorite,
+    TResult Function(_WeatherEventUpdateWeathers value)? updateWeathers,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $WeatherEventCopyWith<WeatherEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -67,8 +67,6 @@ abstract class $WeatherEventCopyWith<$Res> {
   factory $WeatherEventCopyWith(
           WeatherEvent value, $Res Function(WeatherEvent) then) =
       _$WeatherEventCopyWithImpl<$Res, WeatherEvent>;
-  @useResult
-  $Res call({int id});
 }
 
 /// @nodoc
@@ -80,114 +78,74 @@ class _$WeatherEventCopyWithImpl<$Res, $Val extends WeatherEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_WeatherEventGetFromRemoteCopyWith<$Res>
-    implements $WeatherEventCopyWith<$Res> {
-  factory _$$_WeatherEventGetFromRemoteCopyWith(
-          _$_WeatherEventGetFromRemote value,
-          $Res Function(_$_WeatherEventGetFromRemote) then) =
-      __$$_WeatherEventGetFromRemoteCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int id});
+abstract class _$$_WeatherEventGetWeathersCopyWith<$Res> {
+  factory _$$_WeatherEventGetWeathersCopyWith(_$_WeatherEventGetWeathers value,
+          $Res Function(_$_WeatherEventGetWeathers) then) =
+      __$$_WeatherEventGetWeathersCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WeatherEventGetFromRemoteCopyWithImpl<$Res>
-    extends _$WeatherEventCopyWithImpl<$Res, _$_WeatherEventGetFromRemote>
-    implements _$$_WeatherEventGetFromRemoteCopyWith<$Res> {
-  __$$_WeatherEventGetFromRemoteCopyWithImpl(
-      _$_WeatherEventGetFromRemote _value,
-      $Res Function(_$_WeatherEventGetFromRemote) _then)
+class __$$_WeatherEventGetWeathersCopyWithImpl<$Res>
+    extends _$WeatherEventCopyWithImpl<$Res, _$_WeatherEventGetWeathers>
+    implements _$$_WeatherEventGetWeathersCopyWith<$Res> {
+  __$$_WeatherEventGetWeathersCopyWithImpl(_$_WeatherEventGetWeathers _value,
+      $Res Function(_$_WeatherEventGetWeathers) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$_WeatherEventGetFromRemote(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$_WeatherEventGetFromRemote implements _WeatherEventGetFromRemote {
-  const _$_WeatherEventGetFromRemote({required this.id});
-
-  @override
-  final int id;
+class _$_WeatherEventGetWeathers implements _WeatherEventGetWeathers {
+  const _$_WeatherEventGetWeathers();
 
   @override
   String toString() {
-    return 'WeatherEvent.getWeatherFromRemote(id: $id)';
+    return 'WeatherEvent.getWeathers()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WeatherEventGetFromRemote &&
-            (identical(other.id, id) || other.id == id));
+            other is _$_WeatherEventGetWeathers);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_WeatherEventGetFromRemoteCopyWith<_$_WeatherEventGetFromRemote>
-      get copyWith => __$$_WeatherEventGetFromRemoteCopyWithImpl<
-          _$_WeatherEventGetFromRemote>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) getWeatherFromRemote,
-    required TResult Function(int id) getWeather,
+    required TResult Function() getWeathers,
+    required TResult Function(int id, bool isFavorite) setFavorite,
+    required TResult Function(List<Weather> weathers) updateWeathers,
   }) {
-    return getWeatherFromRemote(id);
+    return getWeathers();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? getWeatherFromRemote,
-    TResult? Function(int id)? getWeather,
+    TResult? Function()? getWeathers,
+    TResult? Function(int id, bool isFavorite)? setFavorite,
+    TResult? Function(List<Weather> weathers)? updateWeathers,
   }) {
-    return getWeatherFromRemote?.call(id);
+    return getWeathers?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? getWeatherFromRemote,
-    TResult Function(int id)? getWeather,
+    TResult Function()? getWeathers,
+    TResult Function(int id, bool isFavorite)? setFavorite,
+    TResult Function(List<Weather> weathers)? updateWeathers,
     required TResult orElse(),
   }) {
-    if (getWeatherFromRemote != null) {
-      return getWeatherFromRemote(id);
+    if (getWeathers != null) {
+      return getWeathers();
     }
     return orElse();
   }
@@ -195,140 +153,296 @@ class _$_WeatherEventGetFromRemote implements _WeatherEventGetFromRemote {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WeatherEventGetFromRemote value)
-        getWeatherFromRemote,
-    required TResult Function(_WeatherEventGetFromLocal value) getWeather,
+    required TResult Function(_WeatherEventGetWeathers value) getWeathers,
+    required TResult Function(_WeatherEventSetFavorite value) setFavorite,
+    required TResult Function(_WeatherEventUpdateWeathers value) updateWeathers,
   }) {
-    return getWeatherFromRemote(this);
+    return getWeathers(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_WeatherEventGetFromRemote value)? getWeatherFromRemote,
-    TResult? Function(_WeatherEventGetFromLocal value)? getWeather,
+    TResult? Function(_WeatherEventGetWeathers value)? getWeathers,
+    TResult? Function(_WeatherEventSetFavorite value)? setFavorite,
+    TResult? Function(_WeatherEventUpdateWeathers value)? updateWeathers,
   }) {
-    return getWeatherFromRemote?.call(this);
+    return getWeathers?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WeatherEventGetFromRemote value)? getWeatherFromRemote,
-    TResult Function(_WeatherEventGetFromLocal value)? getWeather,
+    TResult Function(_WeatherEventGetWeathers value)? getWeathers,
+    TResult Function(_WeatherEventSetFavorite value)? setFavorite,
+    TResult Function(_WeatherEventUpdateWeathers value)? updateWeathers,
     required TResult orElse(),
   }) {
-    if (getWeatherFromRemote != null) {
-      return getWeatherFromRemote(this);
+    if (getWeathers != null) {
+      return getWeathers(this);
     }
     return orElse();
   }
 }
 
-abstract class _WeatherEventGetFromRemote implements WeatherEvent {
-  const factory _WeatherEventGetFromRemote({required final int id}) =
-      _$_WeatherEventGetFromRemote;
+abstract class _WeatherEventGetWeathers implements WeatherEvent {
+  const factory _WeatherEventGetWeathers() = _$_WeatherEventGetWeathers;
+}
+
+/// @nodoc
+abstract class _$$_WeatherEventSetFavoriteCopyWith<$Res> {
+  factory _$$_WeatherEventSetFavoriteCopyWith(_$_WeatherEventSetFavorite value,
+          $Res Function(_$_WeatherEventSetFavorite) then) =
+      __$$_WeatherEventSetFavoriteCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id, bool isFavorite});
+}
+
+/// @nodoc
+class __$$_WeatherEventSetFavoriteCopyWithImpl<$Res>
+    extends _$WeatherEventCopyWithImpl<$Res, _$_WeatherEventSetFavorite>
+    implements _$$_WeatherEventSetFavoriteCopyWith<$Res> {
+  __$$_WeatherEventSetFavoriteCopyWithImpl(_$_WeatherEventSetFavorite _value,
+      $Res Function(_$_WeatherEventSetFavorite) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? isFavorite = null,
+  }) {
+    return _then(_$_WeatherEventSetFavorite(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WeatherEventSetFavorite implements _WeatherEventSetFavorite {
+  const _$_WeatherEventSetFavorite(
+      {required this.id, required this.isFavorite});
 
   @override
-  int get id;
+  final int id;
   @override
+  final bool isFavorite;
+
+  @override
+  String toString() {
+    return 'WeatherEvent.setFavorite(id: $id, isFavorite: $isFavorite)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WeatherEventSetFavorite &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, isFavorite);
+
   @JsonKey(ignore: true)
-  _$$_WeatherEventGetFromRemoteCopyWith<_$_WeatherEventGetFromRemote>
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WeatherEventSetFavoriteCopyWith<_$_WeatherEventSetFavorite>
+      get copyWith =>
+          __$$_WeatherEventSetFavoriteCopyWithImpl<_$_WeatherEventSetFavorite>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getWeathers,
+    required TResult Function(int id, bool isFavorite) setFavorite,
+    required TResult Function(List<Weather> weathers) updateWeathers,
+  }) {
+    return setFavorite(id, isFavorite);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getWeathers,
+    TResult? Function(int id, bool isFavorite)? setFavorite,
+    TResult? Function(List<Weather> weathers)? updateWeathers,
+  }) {
+    return setFavorite?.call(id, isFavorite);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getWeathers,
+    TResult Function(int id, bool isFavorite)? setFavorite,
+    TResult Function(List<Weather> weathers)? updateWeathers,
+    required TResult orElse(),
+  }) {
+    if (setFavorite != null) {
+      return setFavorite(id, isFavorite);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WeatherEventGetWeathers value) getWeathers,
+    required TResult Function(_WeatherEventSetFavorite value) setFavorite,
+    required TResult Function(_WeatherEventUpdateWeathers value) updateWeathers,
+  }) {
+    return setFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WeatherEventGetWeathers value)? getWeathers,
+    TResult? Function(_WeatherEventSetFavorite value)? setFavorite,
+    TResult? Function(_WeatherEventUpdateWeathers value)? updateWeathers,
+  }) {
+    return setFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WeatherEventGetWeathers value)? getWeathers,
+    TResult Function(_WeatherEventSetFavorite value)? setFavorite,
+    TResult Function(_WeatherEventUpdateWeathers value)? updateWeathers,
+    required TResult orElse(),
+  }) {
+    if (setFavorite != null) {
+      return setFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WeatherEventSetFavorite implements WeatherEvent {
+  const factory _WeatherEventSetFavorite(
+      {required final int id,
+      required final bool isFavorite}) = _$_WeatherEventSetFavorite;
+
+  int get id;
+  bool get isFavorite;
+  @JsonKey(ignore: true)
+  _$$_WeatherEventSetFavoriteCopyWith<_$_WeatherEventSetFavorite>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_WeatherEventGetFromLocalCopyWith<$Res>
-    implements $WeatherEventCopyWith<$Res> {
-  factory _$$_WeatherEventGetFromLocalCopyWith(
-          _$_WeatherEventGetFromLocal value,
-          $Res Function(_$_WeatherEventGetFromLocal) then) =
-      __$$_WeatherEventGetFromLocalCopyWithImpl<$Res>;
-  @override
+abstract class _$$_WeatherEventUpdateWeathersCopyWith<$Res> {
+  factory _$$_WeatherEventUpdateWeathersCopyWith(
+          _$_WeatherEventUpdateWeathers value,
+          $Res Function(_$_WeatherEventUpdateWeathers) then) =
+      __$$_WeatherEventUpdateWeathersCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id});
+  $Res call({List<Weather> weathers});
 }
 
 /// @nodoc
-class __$$_WeatherEventGetFromLocalCopyWithImpl<$Res>
-    extends _$WeatherEventCopyWithImpl<$Res, _$_WeatherEventGetFromLocal>
-    implements _$$_WeatherEventGetFromLocalCopyWith<$Res> {
-  __$$_WeatherEventGetFromLocalCopyWithImpl(_$_WeatherEventGetFromLocal _value,
-      $Res Function(_$_WeatherEventGetFromLocal) _then)
+class __$$_WeatherEventUpdateWeathersCopyWithImpl<$Res>
+    extends _$WeatherEventCopyWithImpl<$Res, _$_WeatherEventUpdateWeathers>
+    implements _$$_WeatherEventUpdateWeathersCopyWith<$Res> {
+  __$$_WeatherEventUpdateWeathersCopyWithImpl(
+      _$_WeatherEventUpdateWeathers _value,
+      $Res Function(_$_WeatherEventUpdateWeathers) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? weathers = null,
   }) {
-    return _then(_$_WeatherEventGetFromLocal(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
+    return _then(_$_WeatherEventUpdateWeathers(
+      weathers: null == weathers
+          ? _value._weathers
+          : weathers // ignore: cast_nullable_to_non_nullable
+              as List<Weather>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_WeatherEventGetFromLocal implements _WeatherEventGetFromLocal {
-  const _$_WeatherEventGetFromLocal({required this.id});
+class _$_WeatherEventUpdateWeathers implements _WeatherEventUpdateWeathers {
+  const _$_WeatherEventUpdateWeathers({required final List<Weather> weathers})
+      : _weathers = weathers;
 
+  final List<Weather> _weathers;
   @override
-  final int id;
+  List<Weather> get weathers {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_weathers);
+  }
 
   @override
   String toString() {
-    return 'WeatherEvent.getWeather(id: $id)';
+    return 'WeatherEvent.updateWeathers(weathers: $weathers)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WeatherEventGetFromLocal &&
-            (identical(other.id, id) || other.id == id));
+            other is _$_WeatherEventUpdateWeathers &&
+            const DeepCollectionEquality().equals(other._weathers, _weathers));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_weathers));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WeatherEventGetFromLocalCopyWith<_$_WeatherEventGetFromLocal>
-      get copyWith => __$$_WeatherEventGetFromLocalCopyWithImpl<
-          _$_WeatherEventGetFromLocal>(this, _$identity);
+  _$$_WeatherEventUpdateWeathersCopyWith<_$_WeatherEventUpdateWeathers>
+      get copyWith => __$$_WeatherEventUpdateWeathersCopyWithImpl<
+          _$_WeatherEventUpdateWeathers>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) getWeatherFromRemote,
-    required TResult Function(int id) getWeather,
+    required TResult Function() getWeathers,
+    required TResult Function(int id, bool isFavorite) setFavorite,
+    required TResult Function(List<Weather> weathers) updateWeathers,
   }) {
-    return getWeather(id);
+    return updateWeathers(weathers);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? getWeatherFromRemote,
-    TResult? Function(int id)? getWeather,
+    TResult? Function()? getWeathers,
+    TResult? Function(int id, bool isFavorite)? setFavorite,
+    TResult? Function(List<Weather> weathers)? updateWeathers,
   }) {
-    return getWeather?.call(id);
+    return updateWeathers?.call(weathers);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? getWeatherFromRemote,
-    TResult Function(int id)? getWeather,
+    TResult Function()? getWeathers,
+    TResult Function(int id, bool isFavorite)? setFavorite,
+    TResult Function(List<Weather> weathers)? updateWeathers,
     required TResult orElse(),
   }) {
-    if (getWeather != null) {
-      return getWeather(id);
+    if (updateWeathers != null) {
+      return updateWeathers(weathers);
     }
     return orElse();
   }
@@ -336,44 +450,44 @@ class _$_WeatherEventGetFromLocal implements _WeatherEventGetFromLocal {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WeatherEventGetFromRemote value)
-        getWeatherFromRemote,
-    required TResult Function(_WeatherEventGetFromLocal value) getWeather,
+    required TResult Function(_WeatherEventGetWeathers value) getWeathers,
+    required TResult Function(_WeatherEventSetFavorite value) setFavorite,
+    required TResult Function(_WeatherEventUpdateWeathers value) updateWeathers,
   }) {
-    return getWeather(this);
+    return updateWeathers(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_WeatherEventGetFromRemote value)? getWeatherFromRemote,
-    TResult? Function(_WeatherEventGetFromLocal value)? getWeather,
+    TResult? Function(_WeatherEventGetWeathers value)? getWeathers,
+    TResult? Function(_WeatherEventSetFavorite value)? setFavorite,
+    TResult? Function(_WeatherEventUpdateWeathers value)? updateWeathers,
   }) {
-    return getWeather?.call(this);
+    return updateWeathers?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WeatherEventGetFromRemote value)? getWeatherFromRemote,
-    TResult Function(_WeatherEventGetFromLocal value)? getWeather,
+    TResult Function(_WeatherEventGetWeathers value)? getWeathers,
+    TResult Function(_WeatherEventSetFavorite value)? setFavorite,
+    TResult Function(_WeatherEventUpdateWeathers value)? updateWeathers,
     required TResult orElse(),
   }) {
-    if (getWeather != null) {
-      return getWeather(this);
+    if (updateWeathers != null) {
+      return updateWeathers(this);
     }
     return orElse();
   }
 }
 
-abstract class _WeatherEventGetFromLocal implements WeatherEvent {
-  const factory _WeatherEventGetFromLocal({required final int id}) =
-      _$_WeatherEventGetFromLocal;
+abstract class _WeatherEventUpdateWeathers implements WeatherEvent {
+  const factory _WeatherEventUpdateWeathers(
+      {required final List<Weather> weathers}) = _$_WeatherEventUpdateWeathers;
 
-  @override
-  int get id;
-  @override
+  List<Weather> get weathers;
   @JsonKey(ignore: true)
-  _$$_WeatherEventGetFromLocalCopyWith<_$_WeatherEventGetFromLocal>
+  _$$_WeatherEventUpdateWeathersCopyWith<_$_WeatherEventUpdateWeathers>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -6,6 +6,8 @@ import 'package:exam_weather_flutter/data/repository/weather_repository/i_weathe
 import 'package:exam_weather_flutter/data/repository/weather_repository/weather_repository.dart';
 import 'package:exam_weather_flutter/data/services/weather_service.dart';
 import 'package:exam_weather_flutter/di/i_dependencies.dart';
+import 'package:exam_weather_flutter/ui/weathers/bloc/weather_bloc/weather_bloc.dart';
+import 'package:exam_weather_flutter/ui/weathers/bloc/weather_details_bloc/weather_details_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 @module
@@ -44,15 +46,21 @@ abstract class CoreConfiguration implements ICoreDependencies {
   @override
   FavoritesDao favoritesDao(AppDatabase appDatabase) => FavoritesDao(appDatabase);
 
-  @prod
   @lazySingleton
   @override
   WeatherService weatherService({required Dio dio,
     @Named(API_BASE_URL) required String baseUrl}) => WeatherService(dio, baseUrl: baseUrl);
 
-  @prod
   @lazySingleton
   @override
   IWeatherRepository weatherRepository({required WeatherDao weatherDao, required FavoritesDao favoritesDao, required WeatherService weatherService}) =>
       WeatherRepository(weatherDao: weatherDao, favoritesDao: favoritesDao, weatherService: weatherService);
+
+  @lazySingleton
+  @override
+  WeatherBloc weatherBloc({required IWeatherRepository weatherRepository}) => WeatherBloc(weatherRepository: weatherRepository);
+
+  @lazySingleton
+  @override
+  WeatherDetailsBloc weatherDetailsBloc({required IWeatherRepository weatherRepository}) => WeatherDetailsBloc(weatherRepository: weatherRepository);
 }
