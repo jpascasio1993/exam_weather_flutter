@@ -2,6 +2,9 @@
 
 Weather Forecase Flutter App
 
+![Dashboard](https://github.com/jpascasio1993/exam_weather_flutter/blob/main/app-1.jpg)
+![Details](https://github.com/jpascasio1993/exam_weather_flutter/blob/main/app-2.jpg)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
