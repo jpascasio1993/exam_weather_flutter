@@ -9,26 +9,35 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   final IWeatherRepository weatherRepository;
-  late final StreamSubscription<List<Weather>>? _weatherSubscription;
+  final dummyDataIds = [1701668, 3067696, 1835848];
+  StreamSubscription<List<Weather>>? _weatherSubscription;
 
   WeatherBloc({required this.weatherRepository}) : super(const WeatherState()) {
-    on<WeatherEvent>((event, emit)  async {
-      await event.when(getWeathers: () async {
+    on<WeatherEvent>((event, emit) async {
+      await event.when(
+        getWeathersFromRemote: () async {
+          emit(state.copyWith(requestState: const RequestState<List<Weather>>.loading()));
+          await weatherRepository.updateLocalWeathers(dummyDataIds);
+        },
+          getWeathers: () async {
         emit(state.copyWith(requestState: const RequestState<List<Weather>>.loading()));
-        subscribeWeather();
+        await subscribeWeather();
       }, setFavorite: (id, isFavorite) async {
         final result = await weatherRepository.setFavorite(id, isFavorite);
-        result.maybeWhen(error: (exception) {
-          // TODO: show error
-        },orElse: () => null);
+        result.maybeWhen(
+            error: (exception) {
+              // TODO: show error
+            },
+            orElse: () => null);
       }, updateWeathers: (List<Weather> weathers) {
-        emit(state.copyWith(requestState: RequestState<List<Weather>>.success(weathers)));
+        emit(state.copyWith(requestState: RequestState<List<Weather>>.loaded(weathers), weathers: weathers));
       });
     });
   }
 
-  void subscribeWeather() {
-    _weatherSubscription?.cancel();
+  Future<void> subscribeWeather() async {
+    await _weatherSubscription?.cancel();
+    await weatherRepository.updateLocalWeathers(dummyDataIds);
     _weatherSubscription = weatherRepository.getWeathers().listen((weathers) {
       add(WeatherEvent.updateWeathers(weathers: weathers));
     });

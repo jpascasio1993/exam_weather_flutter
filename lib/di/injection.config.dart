@@ -90,7 +90,7 @@ _i1.GetIt $initGetIt(
           ));
   gh.lazySingleton<_i9.WeatherBloc>(() => coreConfiguration.weatherBloc(
       weatherRepository: get<_i8.IWeatherRepository>()));
-  gh.lazySingleton<_i10.WeatherDetailsBloc>(() => coreConfiguration
+  gh.factory<_i10.WeatherDetailsBloc>(() => coreConfiguration
       .weatherDetailsBloc(weatherRepository: get<_i8.IWeatherRepository>()));
   return get;
 }

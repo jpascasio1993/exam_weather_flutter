@@ -1,0 +1,24 @@
+{
+    "appName": "Weather Forecast",
+    "degreeCelcius": "{temp} \u2103",
+    "@degreeCelcius": {
+        "description": "weather temperature",
+        "placeholders": {
+            "temp": {
+                "type": "String"
+            }
+        }
+    },
+    "tempRange": "High {temp0} \u2103 / Low {temp1} \u2103",
+    "@tempRange": {
+        "description": "weather temperature range",
+        "placeholders": {
+            "temp0": {
+                "type": "String"
+            },
+            "temp1": {
+                "type": "String"
+            }
+        }
+    }
+}

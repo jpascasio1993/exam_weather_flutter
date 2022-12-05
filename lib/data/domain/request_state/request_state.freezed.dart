@@ -19,7 +19,7 @@ mixin _$RequestState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(T data) success,
+    required TResult Function(T data) loaded,
     required TResult Function(Exception exception) error,
     required TResult Function(String? message) loading,
   }) =>
@@ -27,7 +27,7 @@ mixin _$RequestState<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(T data)? success,
+    TResult? Function(T data)? loaded,
     TResult? Function(Exception exception)? error,
     TResult? Function(String? message)? loading,
   }) =>
@@ -35,7 +35,7 @@ mixin _$RequestState<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(T data)? success,
+    TResult Function(T data)? loaded,
     TResult Function(Exception exception)? error,
     TResult Function(String? message)? loading,
     required TResult orElse(),
@@ -44,7 +44,7 @@ mixin _$RequestState<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestStateInit<T> value) init,
-    required TResult Function(_RequestStateSuccess<T> value) success,
+    required TResult Function(_RequestStateSuccess<T> value) loaded,
     required TResult Function(_RequestStateException<T> value) error,
     required TResult Function(_RequestStateLoading<T> value) loading,
   }) =>
@@ -52,7 +52,7 @@ mixin _$RequestState<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestStateInit<T> value)? init,
-    TResult? Function(_RequestStateSuccess<T> value)? success,
+    TResult? Function(_RequestStateSuccess<T> value)? loaded,
     TResult? Function(_RequestStateException<T> value)? error,
     TResult? Function(_RequestStateLoading<T> value)? loading,
   }) =>
@@ -60,7 +60,7 @@ mixin _$RequestState<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestStateInit<T> value)? init,
-    TResult Function(_RequestStateSuccess<T> value)? success,
+    TResult Function(_RequestStateSuccess<T> value)? loaded,
     TResult Function(_RequestStateException<T> value)? error,
     TResult Function(_RequestStateLoading<T> value)? loading,
     required TResult orElse(),
@@ -120,7 +120,7 @@ class _$_RequestStateInit<T> implements _RequestStateInit<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(T data) success,
+    required TResult Function(T data) loaded,
     required TResult Function(Exception exception) error,
     required TResult Function(String? message) loading,
   }) {
@@ -131,7 +131,7 @@ class _$_RequestStateInit<T> implements _RequestStateInit<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(T data)? success,
+    TResult? Function(T data)? loaded,
     TResult? Function(Exception exception)? error,
     TResult? Function(String? message)? loading,
   }) {
@@ -142,7 +142,7 @@ class _$_RequestStateInit<T> implements _RequestStateInit<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(T data)? success,
+    TResult Function(T data)? loaded,
     TResult Function(Exception exception)? error,
     TResult Function(String? message)? loading,
     required TResult orElse(),
@@ -157,7 +157,7 @@ class _$_RequestStateInit<T> implements _RequestStateInit<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestStateInit<T> value) init,
-    required TResult Function(_RequestStateSuccess<T> value) success,
+    required TResult Function(_RequestStateSuccess<T> value) loaded,
     required TResult Function(_RequestStateException<T> value) error,
     required TResult Function(_RequestStateLoading<T> value) loading,
   }) {
@@ -168,7 +168,7 @@ class _$_RequestStateInit<T> implements _RequestStateInit<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestStateInit<T> value)? init,
-    TResult? Function(_RequestStateSuccess<T> value)? success,
+    TResult? Function(_RequestStateSuccess<T> value)? loaded,
     TResult? Function(_RequestStateException<T> value)? error,
     TResult? Function(_RequestStateLoading<T> value)? loading,
   }) {
@@ -179,7 +179,7 @@ class _$_RequestStateInit<T> implements _RequestStateInit<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestStateInit<T> value)? init,
-    TResult Function(_RequestStateSuccess<T> value)? success,
+    TResult Function(_RequestStateSuccess<T> value)? loaded,
     TResult Function(_RequestStateException<T> value)? error,
     TResult Function(_RequestStateLoading<T> value)? loading,
     required TResult orElse(),
@@ -257,35 +257,35 @@ class _$_RequestStateSuccess<T> implements _RequestStateSuccess<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(T data) success,
+    required TResult Function(T data) loaded,
     required TResult Function(Exception exception) error,
     required TResult Function(String? message) loading,
   }) {
-    return success(data);
+    return loaded(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(T data)? success,
+    TResult? Function(T data)? loaded,
     TResult? Function(Exception exception)? error,
     TResult? Function(String? message)? loading,
   }) {
-    return success?.call(data);
+    return loaded?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(T data)? success,
+    TResult Function(T data)? loaded,
     TResult Function(Exception exception)? error,
     TResult Function(String? message)? loading,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(data);
+    if (loaded != null) {
+      return loaded(data);
     }
     return orElse();
   }
@@ -294,35 +294,35 @@ class _$_RequestStateSuccess<T> implements _RequestStateSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestStateInit<T> value) init,
-    required TResult Function(_RequestStateSuccess<T> value) success,
+    required TResult Function(_RequestStateSuccess<T> value) loaded,
     required TResult Function(_RequestStateException<T> value) error,
     required TResult Function(_RequestStateLoading<T> value) loading,
   }) {
-    return success(this);
+    return loaded(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestStateInit<T> value)? init,
-    TResult? Function(_RequestStateSuccess<T> value)? success,
+    TResult? Function(_RequestStateSuccess<T> value)? loaded,
     TResult? Function(_RequestStateException<T> value)? error,
     TResult? Function(_RequestStateLoading<T> value)? loading,
   }) {
-    return success?.call(this);
+    return loaded?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestStateInit<T> value)? init,
-    TResult Function(_RequestStateSuccess<T> value)? success,
+    TResult Function(_RequestStateSuccess<T> value)? loaded,
     TResult Function(_RequestStateException<T> value)? error,
     TResult Function(_RequestStateLoading<T> value)? loading,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }
@@ -399,7 +399,7 @@ class _$_RequestStateException<T> implements _RequestStateException<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(T data) success,
+    required TResult Function(T data) loaded,
     required TResult Function(Exception exception) error,
     required TResult Function(String? message) loading,
   }) {
@@ -410,7 +410,7 @@ class _$_RequestStateException<T> implements _RequestStateException<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(T data)? success,
+    TResult? Function(T data)? loaded,
     TResult? Function(Exception exception)? error,
     TResult? Function(String? message)? loading,
   }) {
@@ -421,7 +421,7 @@ class _$_RequestStateException<T> implements _RequestStateException<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(T data)? success,
+    TResult Function(T data)? loaded,
     TResult Function(Exception exception)? error,
     TResult Function(String? message)? loading,
     required TResult orElse(),
@@ -436,7 +436,7 @@ class _$_RequestStateException<T> implements _RequestStateException<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestStateInit<T> value) init,
-    required TResult Function(_RequestStateSuccess<T> value) success,
+    required TResult Function(_RequestStateSuccess<T> value) loaded,
     required TResult Function(_RequestStateException<T> value) error,
     required TResult Function(_RequestStateLoading<T> value) loading,
   }) {
@@ -447,7 +447,7 @@ class _$_RequestStateException<T> implements _RequestStateException<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestStateInit<T> value)? init,
-    TResult? Function(_RequestStateSuccess<T> value)? success,
+    TResult? Function(_RequestStateSuccess<T> value)? loaded,
     TResult? Function(_RequestStateException<T> value)? error,
     TResult? Function(_RequestStateLoading<T> value)? loading,
   }) {
@@ -458,7 +458,7 @@ class _$_RequestStateException<T> implements _RequestStateException<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestStateInit<T> value)? init,
-    TResult Function(_RequestStateSuccess<T> value)? success,
+    TResult Function(_RequestStateSuccess<T> value)? loaded,
     TResult Function(_RequestStateException<T> value)? error,
     TResult Function(_RequestStateLoading<T> value)? loading,
     required TResult orElse(),
@@ -541,7 +541,7 @@ class _$_RequestStateLoading<T> implements _RequestStateLoading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(T data) success,
+    required TResult Function(T data) loaded,
     required TResult Function(Exception exception) error,
     required TResult Function(String? message) loading,
   }) {
@@ -552,7 +552,7 @@ class _$_RequestStateLoading<T> implements _RequestStateLoading<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(T data)? success,
+    TResult? Function(T data)? loaded,
     TResult? Function(Exception exception)? error,
     TResult? Function(String? message)? loading,
   }) {
@@ -563,7 +563,7 @@ class _$_RequestStateLoading<T> implements _RequestStateLoading<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(T data)? success,
+    TResult Function(T data)? loaded,
     TResult Function(Exception exception)? error,
     TResult Function(String? message)? loading,
     required TResult orElse(),
@@ -578,7 +578,7 @@ class _$_RequestStateLoading<T> implements _RequestStateLoading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestStateInit<T> value) init,
-    required TResult Function(_RequestStateSuccess<T> value) success,
+    required TResult Function(_RequestStateSuccess<T> value) loaded,
     required TResult Function(_RequestStateException<T> value) error,
     required TResult Function(_RequestStateLoading<T> value) loading,
   }) {
@@ -589,7 +589,7 @@ class _$_RequestStateLoading<T> implements _RequestStateLoading<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestStateInit<T> value)? init,
-    TResult? Function(_RequestStateSuccess<T> value)? success,
+    TResult? Function(_RequestStateSuccess<T> value)? loaded,
     TResult? Function(_RequestStateException<T> value)? error,
     TResult? Function(_RequestStateLoading<T> value)? loading,
   }) {
@@ -600,7 +600,7 @@ class _$_RequestStateLoading<T> implements _RequestStateLoading<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestStateInit<T> value)? init,
-    TResult Function(_RequestStateSuccess<T> value)? success,
+    TResult Function(_RequestStateSuccess<T> value)? loaded,
     TResult Function(_RequestStateException<T> value)? error,
     TResult Function(_RequestStateLoading<T> value)? loading,
     required TResult orElse(),

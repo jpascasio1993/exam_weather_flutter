@@ -21,6 +21,7 @@ RemoteGroupWeatherDTO _$RemoteGroupWeatherDTOFromJson(
 
 /// @nodoc
 mixin _$RemoteGroupWeatherDTO {
+  @JsonKey(name: 'list')
   List<WeatherDTO> get weathers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $RemoteGroupWeatherDTOCopyWith<$Res> {
           $Res Function(RemoteGroupWeatherDTO) then) =
       _$RemoteGroupWeatherDTOCopyWithImpl<$Res, RemoteGroupWeatherDTO>;
   @useResult
-  $Res call({List<WeatherDTO> weathers});
+  $Res call({@JsonKey(name: 'list') List<WeatherDTO> weathers});
 }
 
 /// @nodoc
@@ -71,7 +72,7 @@ abstract class _$$_RemoteGroupWeatherDTOCopyWith<$Res>
       __$$_RemoteGroupWeatherDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<WeatherDTO> weathers});
+  $Res call({@JsonKey(name: 'list') List<WeatherDTO> weathers});
 }
 
 /// @nodoc
@@ -97,9 +98,11 @@ class __$$_RemoteGroupWeatherDTOCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$_RemoteGroupWeatherDTO implements _RemoteGroupWeatherDTO {
-  const _$_RemoteGroupWeatherDTO({final List<WeatherDTO> weathers = const []})
+  const _$_RemoteGroupWeatherDTO(
+      {@JsonKey(name: 'list') final List<WeatherDTO> weathers = const []})
       : _weathers = weathers;
 
   factory _$_RemoteGroupWeatherDTO.fromJson(Map<String, dynamic> json) =>
@@ -107,7 +110,7 @@ class _$_RemoteGroupWeatherDTO implements _RemoteGroupWeatherDTO {
 
   final List<WeatherDTO> _weathers;
   @override
-  @JsonKey()
+  @JsonKey(name: 'list')
   List<WeatherDTO> get weathers {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_weathers);
@@ -147,13 +150,15 @@ class _$_RemoteGroupWeatherDTO implements _RemoteGroupWeatherDTO {
 }
 
 abstract class _RemoteGroupWeatherDTO implements RemoteGroupWeatherDTO {
-  const factory _RemoteGroupWeatherDTO({final List<WeatherDTO> weathers}) =
+  const factory _RemoteGroupWeatherDTO(
+          {@JsonKey(name: 'list') final List<WeatherDTO> weathers}) =
       _$_RemoteGroupWeatherDTO;
 
   factory _RemoteGroupWeatherDTO.fromJson(Map<String, dynamic> json) =
       _$_RemoteGroupWeatherDTO.fromJson;
 
   @override
+  @JsonKey(name: 'list')
   List<WeatherDTO> get weathers;
   @override
   @JsonKey(ignore: true)

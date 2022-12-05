@@ -22,6 +22,7 @@ WeatherDTO _$WeatherDTOFromJson(Map<String, dynamic> json) {
 mixin _$WeatherDTO {
   int get id => throw _privateConstructorUsedError;
   List<WeatherStatsDTO> get weather => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
   String get city => throw _privateConstructorUsedError;
   @JsonKey(name: 'main')
   WeatherTempDTO get temp => throw _privateConstructorUsedError;
@@ -41,7 +42,7 @@ abstract class $WeatherDTOCopyWith<$Res> {
   $Res call(
       {int id,
       List<WeatherStatsDTO> weather,
-      String city,
+      @JsonKey(name: 'name') String city,
       @JsonKey(name: 'main') WeatherTempDTO temp});
 
   $WeatherTempDTOCopyWith<$Res> get temp;
@@ -105,7 +106,7 @@ abstract class _$$_WeatherDTOCopyWith<$Res>
   $Res call(
       {int id,
       List<WeatherStatsDTO> weather,
-      String city,
+      @JsonKey(name: 'name') String city,
       @JsonKey(name: 'main') WeatherTempDTO temp});
 
   @override
@@ -156,7 +157,7 @@ class _$_WeatherDTO implements _WeatherDTO {
   const _$_WeatherDTO(
       {required this.id,
       final List<WeatherStatsDTO> weather = const [],
-      required this.city,
+      @JsonKey(name: 'name') required this.city,
       @JsonKey(name: 'main') required this.temp})
       : _weather = weather;
 
@@ -174,6 +175,7 @@ class _$_WeatherDTO implements _WeatherDTO {
   }
 
   @override
+  @JsonKey(name: 'name')
   final String city;
   @override
   @JsonKey(name: 'main')
@@ -218,7 +220,7 @@ abstract class _WeatherDTO implements WeatherDTO {
   const factory _WeatherDTO(
           {required final int id,
           final List<WeatherStatsDTO> weather,
-          required final String city,
+          @JsonKey(name: 'name') required final String city,
           @JsonKey(name: 'main') required final WeatherTempDTO temp}) =
       _$_WeatherDTO;
 
@@ -230,6 +232,7 @@ abstract class _WeatherDTO implements WeatherDTO {
   @override
   List<WeatherStatsDTO> get weather;
   @override
+  @JsonKey(name: 'name')
   String get city;
   @override
   @JsonKey(name: 'main')

@@ -5,7 +5,7 @@ part 'request_state.freezed.dart';
 @freezed
 class RequestState<T> with _$RequestState<T> {
   const factory RequestState.init() = _RequestStateInit<T>;
-  const factory RequestState.success(T data) = _RequestStateSuccess<T>;
+  const factory RequestState.loaded(T data) = _RequestStateSuccess<T>;
   const factory RequestState.error(Exception exception) = _RequestStateException<T>;
   const factory RequestState.loading({String? message}) = _RequestStateLoading<T>;
 
@@ -14,7 +14,7 @@ class RequestState<T> with _$RequestState<T> {
     return when(
         init: () => 'Init',
         loading: (message) => 'Loading[message=$message]',
-        success: (data) => 'Success[data=$data]',
+        loaded: (data) => 'Success[data=$data]',
         error: (exception) => 'Error[exception=$exception]');
   }
 }

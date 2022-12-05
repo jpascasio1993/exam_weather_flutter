@@ -12,7 +12,7 @@ class WeatherDTO with _$WeatherDTO {
   const factory WeatherDTO({
     required int id,
     @Default([]) List<WeatherStatsDTO> weather,
-    required String city,
+    @JsonKey(name: 'name') required String city,
     @JsonKey(name: 'main') required WeatherTempDTO temp,
   }) = _WeatherDTO;
 

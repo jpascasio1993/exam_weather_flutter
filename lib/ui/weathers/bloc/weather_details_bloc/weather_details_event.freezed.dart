@@ -21,6 +21,7 @@ mixin _$WeatherDetailsEvent {
     required TResult Function(int id) getWeatherFromRemote,
     required TResult Function(Weather weather) updateWatchedWeather,
     required TResult Function(Exception exception) error,
+    required TResult Function(int id, bool isFavorite) setFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$WeatherDetailsEvent {
     TResult? Function(int id)? getWeatherFromRemote,
     TResult? Function(Weather weather)? updateWatchedWeather,
     TResult? Function(Exception exception)? error,
+    TResult? Function(int id, bool isFavorite)? setFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$WeatherDetailsEvent {
     TResult Function(int id)? getWeatherFromRemote,
     TResult Function(Weather weather)? updateWatchedWeather,
     TResult Function(Exception exception)? error,
+    TResult Function(int id, bool isFavorite)? setFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,6 +48,8 @@ mixin _$WeatherDetailsEvent {
     required TResult Function(_WeatherDetailsEventUpdateWatchedWeather value)
         updateWatchedWeather,
     required TResult Function(_WeatherDetailsEventError value) error,
+    required TResult Function(_WeatherDetailsEventSetFavorite value)
+        setFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +59,7 @@ mixin _$WeatherDetailsEvent {
     TResult? Function(_WeatherDetailsEventUpdateWatchedWeather value)?
         updateWatchedWeather,
     TResult? Function(_WeatherDetailsEventError value)? error,
+    TResult? Function(_WeatherDetailsEventSetFavorite value)? setFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +69,7 @@ mixin _$WeatherDetailsEvent {
     TResult Function(_WeatherDetailsEventUpdateWatchedWeather value)?
         updateWatchedWeather,
     TResult Function(_WeatherDetailsEventError value)? error,
+    TResult Function(_WeatherDetailsEventSetFavorite value)? setFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -159,6 +166,7 @@ class _$_WeatherDetailsEventGetFromRemote
     required TResult Function(int id) getWeatherFromRemote,
     required TResult Function(Weather weather) updateWatchedWeather,
     required TResult Function(Exception exception) error,
+    required TResult Function(int id, bool isFavorite) setFavorite,
   }) {
     return getWeatherFromRemote(id);
   }
@@ -169,6 +177,7 @@ class _$_WeatherDetailsEventGetFromRemote
     TResult? Function(int id)? getWeatherFromRemote,
     TResult? Function(Weather weather)? updateWatchedWeather,
     TResult? Function(Exception exception)? error,
+    TResult? Function(int id, bool isFavorite)? setFavorite,
   }) {
     return getWeatherFromRemote?.call(id);
   }
@@ -179,6 +188,7 @@ class _$_WeatherDetailsEventGetFromRemote
     TResult Function(int id)? getWeatherFromRemote,
     TResult Function(Weather weather)? updateWatchedWeather,
     TResult Function(Exception exception)? error,
+    TResult Function(int id, bool isFavorite)? setFavorite,
     required TResult orElse(),
   }) {
     if (getWeatherFromRemote != null) {
@@ -195,6 +205,8 @@ class _$_WeatherDetailsEventGetFromRemote
     required TResult Function(_WeatherDetailsEventUpdateWatchedWeather value)
         updateWatchedWeather,
     required TResult Function(_WeatherDetailsEventError value) error,
+    required TResult Function(_WeatherDetailsEventSetFavorite value)
+        setFavorite,
   }) {
     return getWeatherFromRemote(this);
   }
@@ -207,6 +219,7 @@ class _$_WeatherDetailsEventGetFromRemote
     TResult? Function(_WeatherDetailsEventUpdateWatchedWeather value)?
         updateWatchedWeather,
     TResult? Function(_WeatherDetailsEventError value)? error,
+    TResult? Function(_WeatherDetailsEventSetFavorite value)? setFavorite,
   }) {
     return getWeatherFromRemote?.call(this);
   }
@@ -219,6 +232,7 @@ class _$_WeatherDetailsEventGetFromRemote
     TResult Function(_WeatherDetailsEventUpdateWatchedWeather value)?
         updateWatchedWeather,
     TResult Function(_WeatherDetailsEventError value)? error,
+    TResult Function(_WeatherDetailsEventSetFavorite value)? setFavorite,
     required TResult orElse(),
   }) {
     if (getWeatherFromRemote != null) {
@@ -323,6 +337,7 @@ class _$_WeatherDetailsEventUpdateWatchedWeather
     required TResult Function(int id) getWeatherFromRemote,
     required TResult Function(Weather weather) updateWatchedWeather,
     required TResult Function(Exception exception) error,
+    required TResult Function(int id, bool isFavorite) setFavorite,
   }) {
     return updateWatchedWeather(weather);
   }
@@ -333,6 +348,7 @@ class _$_WeatherDetailsEventUpdateWatchedWeather
     TResult? Function(int id)? getWeatherFromRemote,
     TResult? Function(Weather weather)? updateWatchedWeather,
     TResult? Function(Exception exception)? error,
+    TResult? Function(int id, bool isFavorite)? setFavorite,
   }) {
     return updateWatchedWeather?.call(weather);
   }
@@ -343,6 +359,7 @@ class _$_WeatherDetailsEventUpdateWatchedWeather
     TResult Function(int id)? getWeatherFromRemote,
     TResult Function(Weather weather)? updateWatchedWeather,
     TResult Function(Exception exception)? error,
+    TResult Function(int id, bool isFavorite)? setFavorite,
     required TResult orElse(),
   }) {
     if (updateWatchedWeather != null) {
@@ -359,6 +376,8 @@ class _$_WeatherDetailsEventUpdateWatchedWeather
     required TResult Function(_WeatherDetailsEventUpdateWatchedWeather value)
         updateWatchedWeather,
     required TResult Function(_WeatherDetailsEventError value) error,
+    required TResult Function(_WeatherDetailsEventSetFavorite value)
+        setFavorite,
   }) {
     return updateWatchedWeather(this);
   }
@@ -371,6 +390,7 @@ class _$_WeatherDetailsEventUpdateWatchedWeather
     TResult? Function(_WeatherDetailsEventUpdateWatchedWeather value)?
         updateWatchedWeather,
     TResult? Function(_WeatherDetailsEventError value)? error,
+    TResult? Function(_WeatherDetailsEventSetFavorite value)? setFavorite,
   }) {
     return updateWatchedWeather?.call(this);
   }
@@ -383,6 +403,7 @@ class _$_WeatherDetailsEventUpdateWatchedWeather
     TResult Function(_WeatherDetailsEventUpdateWatchedWeather value)?
         updateWatchedWeather,
     TResult Function(_WeatherDetailsEventError value)? error,
+    TResult Function(_WeatherDetailsEventSetFavorite value)? setFavorite,
     required TResult orElse(),
   }) {
     if (updateWatchedWeather != null) {
@@ -475,6 +496,7 @@ class _$_WeatherDetailsEventError implements _WeatherDetailsEventError {
     required TResult Function(int id) getWeatherFromRemote,
     required TResult Function(Weather weather) updateWatchedWeather,
     required TResult Function(Exception exception) error,
+    required TResult Function(int id, bool isFavorite) setFavorite,
   }) {
     return error(exception);
   }
@@ -485,6 +507,7 @@ class _$_WeatherDetailsEventError implements _WeatherDetailsEventError {
     TResult? Function(int id)? getWeatherFromRemote,
     TResult? Function(Weather weather)? updateWatchedWeather,
     TResult? Function(Exception exception)? error,
+    TResult? Function(int id, bool isFavorite)? setFavorite,
   }) {
     return error?.call(exception);
   }
@@ -495,6 +518,7 @@ class _$_WeatherDetailsEventError implements _WeatherDetailsEventError {
     TResult Function(int id)? getWeatherFromRemote,
     TResult Function(Weather weather)? updateWatchedWeather,
     TResult Function(Exception exception)? error,
+    TResult Function(int id, bool isFavorite)? setFavorite,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -511,6 +535,8 @@ class _$_WeatherDetailsEventError implements _WeatherDetailsEventError {
     required TResult Function(_WeatherDetailsEventUpdateWatchedWeather value)
         updateWatchedWeather,
     required TResult Function(_WeatherDetailsEventError value) error,
+    required TResult Function(_WeatherDetailsEventSetFavorite value)
+        setFavorite,
   }) {
     return error(this);
   }
@@ -523,6 +549,7 @@ class _$_WeatherDetailsEventError implements _WeatherDetailsEventError {
     TResult? Function(_WeatherDetailsEventUpdateWatchedWeather value)?
         updateWatchedWeather,
     TResult? Function(_WeatherDetailsEventError value)? error,
+    TResult? Function(_WeatherDetailsEventSetFavorite value)? setFavorite,
   }) {
     return error?.call(this);
   }
@@ -535,6 +562,7 @@ class _$_WeatherDetailsEventError implements _WeatherDetailsEventError {
     TResult Function(_WeatherDetailsEventUpdateWatchedWeather value)?
         updateWatchedWeather,
     TResult Function(_WeatherDetailsEventError value)? error,
+    TResult Function(_WeatherDetailsEventSetFavorite value)? setFavorite,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -551,5 +579,175 @@ abstract class _WeatherDetailsEventError implements WeatherDetailsEvent {
   Exception get exception;
   @JsonKey(ignore: true)
   _$$_WeatherDetailsEventErrorCopyWith<_$_WeatherDetailsEventError>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_WeatherDetailsEventSetFavoriteCopyWith<$Res> {
+  factory _$$_WeatherDetailsEventSetFavoriteCopyWith(
+          _$_WeatherDetailsEventSetFavorite value,
+          $Res Function(_$_WeatherDetailsEventSetFavorite) then) =
+      __$$_WeatherDetailsEventSetFavoriteCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id, bool isFavorite});
+}
+
+/// @nodoc
+class __$$_WeatherDetailsEventSetFavoriteCopyWithImpl<$Res>
+    extends _$WeatherDetailsEventCopyWithImpl<$Res,
+        _$_WeatherDetailsEventSetFavorite>
+    implements _$$_WeatherDetailsEventSetFavoriteCopyWith<$Res> {
+  __$$_WeatherDetailsEventSetFavoriteCopyWithImpl(
+      _$_WeatherDetailsEventSetFavorite _value,
+      $Res Function(_$_WeatherDetailsEventSetFavorite) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? isFavorite = null,
+  }) {
+    return _then(_$_WeatherDetailsEventSetFavorite(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WeatherDetailsEventSetFavorite
+    implements _WeatherDetailsEventSetFavorite {
+  const _$_WeatherDetailsEventSetFavorite(
+      {required this.id, required this.isFavorite});
+
+  @override
+  final int id;
+  @override
+  final bool isFavorite;
+
+  @override
+  String toString() {
+    return 'WeatherDetailsEvent.setFavorite(id: $id, isFavorite: $isFavorite)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WeatherDetailsEventSetFavorite &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, isFavorite);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WeatherDetailsEventSetFavoriteCopyWith<_$_WeatherDetailsEventSetFavorite>
+      get copyWith => __$$_WeatherDetailsEventSetFavoriteCopyWithImpl<
+          _$_WeatherDetailsEventSetFavorite>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) getWeatherFromRemote,
+    required TResult Function(Weather weather) updateWatchedWeather,
+    required TResult Function(Exception exception) error,
+    required TResult Function(int id, bool isFavorite) setFavorite,
+  }) {
+    return setFavorite(id, isFavorite);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int id)? getWeatherFromRemote,
+    TResult? Function(Weather weather)? updateWatchedWeather,
+    TResult? Function(Exception exception)? error,
+    TResult? Function(int id, bool isFavorite)? setFavorite,
+  }) {
+    return setFavorite?.call(id, isFavorite);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? getWeatherFromRemote,
+    TResult Function(Weather weather)? updateWatchedWeather,
+    TResult Function(Exception exception)? error,
+    TResult Function(int id, bool isFavorite)? setFavorite,
+    required TResult orElse(),
+  }) {
+    if (setFavorite != null) {
+      return setFavorite(id, isFavorite);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WeatherDetailsEventGetFromRemote value)
+        getWeatherFromRemote,
+    required TResult Function(_WeatherDetailsEventUpdateWatchedWeather value)
+        updateWatchedWeather,
+    required TResult Function(_WeatherDetailsEventError value) error,
+    required TResult Function(_WeatherDetailsEventSetFavorite value)
+        setFavorite,
+  }) {
+    return setFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WeatherDetailsEventGetFromRemote value)?
+        getWeatherFromRemote,
+    TResult? Function(_WeatherDetailsEventUpdateWatchedWeather value)?
+        updateWatchedWeather,
+    TResult? Function(_WeatherDetailsEventError value)? error,
+    TResult? Function(_WeatherDetailsEventSetFavorite value)? setFavorite,
+  }) {
+    return setFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WeatherDetailsEventGetFromRemote value)?
+        getWeatherFromRemote,
+    TResult Function(_WeatherDetailsEventUpdateWatchedWeather value)?
+        updateWatchedWeather,
+    TResult Function(_WeatherDetailsEventError value)? error,
+    TResult Function(_WeatherDetailsEventSetFavorite value)? setFavorite,
+    required TResult orElse(),
+  }) {
+    if (setFavorite != null) {
+      return setFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WeatherDetailsEventSetFavorite implements WeatherDetailsEvent {
+  const factory _WeatherDetailsEventSetFavorite(
+      {required final int id,
+      required final bool isFavorite}) = _$_WeatherDetailsEventSetFavorite;
+
+  int get id;
+  bool get isFavorite;
+  @JsonKey(ignore: true)
+  _$$_WeatherDetailsEventSetFavoriteCopyWith<_$_WeatherDetailsEventSetFavorite>
       get copyWith => throw _privateConstructorUsedError;
 }

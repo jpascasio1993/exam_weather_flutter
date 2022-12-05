@@ -9,7 +9,7 @@ part of 'remote_group_weather_dto.dart';
 _$_RemoteGroupWeatherDTO _$$_RemoteGroupWeatherDTOFromJson(
         Map<String, dynamic> json) =>
     _$_RemoteGroupWeatherDTO(
-      weathers: (json['weathers'] as List<dynamic>?)
+      weathers: (json['list'] as List<dynamic>?)
               ?.map((e) => WeatherDTO.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
@@ -18,5 +18,5 @@ _$_RemoteGroupWeatherDTO _$$_RemoteGroupWeatherDTOFromJson(
 Map<String, dynamic> _$$_RemoteGroupWeatherDTOToJson(
         _$_RemoteGroupWeatherDTO instance) =>
     <String, dynamic>{
-      'weathers': instance.weathers,
+      'list': instance.weathers.map((e) => e.toJson()).toList(),
     };

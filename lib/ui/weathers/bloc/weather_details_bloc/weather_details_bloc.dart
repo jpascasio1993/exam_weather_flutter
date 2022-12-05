@@ -10,27 +10,35 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WeatherDetailsBloc extends Bloc<WeatherDetailsEvent, WeatherDetailsState> {
   final IWeatherRepository weatherRepository;
-  late final StreamSubscription<Result<Weather>>? _weatherSubscription;
+  StreamSubscription<Result<Weather>>? _weatherSubscription;
 
   WeatherDetailsBloc({required this.weatherRepository}) : super(const WeatherDetailsState()) {
     on<WeatherDetailsEvent>((event, emit) async {
       await event.when(getWeatherFromRemote: (id) async {
-        subscribeWeather(id);
+        await subscribeWeather(id);
         emit(state.copyWith(requestState: const RequestState.loading()));
         final items = await weatherRepository.getWeatherFromRemote(id);
         items.when(
-            success: (data) => emit(state.copyWith(requestState: RequestState<Weather>.success(data))),
+            success: (data) => emit(state.copyWith(requestState: RequestState<Weather>.loaded(data))),
             error: (exception) => RequestState<Weather>.error(exception));
       }, updateWatchedWeather: (weather) async {
-        emit(state.copyWith(weather: weather, requestState: RequestState<Weather>.success(weather)));
+        emit(state.copyWith(weather: weather, requestState: RequestState<Weather>.loaded(weather)));
+      }, setFavorite: (id, isFavorite) async {
+        final result = await weatherRepository.setFavorite(id, isFavorite);
+        result.maybeWhen(
+            error: (exception) {
+              // TODO: show error
+            },
+            orElse: () => null);
       }, error: (exception) {
         emit(state.copyWith(requestState: RequestState<Weather>.error(exception)));
       });
     });
   }
 
-  void subscribeWeather(int id) {
-    _weatherSubscription?.cancel();
+  Future<void> subscribeWeather(int id) async {
+    await _weatherSubscription?.cancel();
+    await weatherRepository.getWeatherFromRemote(id);
     _weatherSubscription = weatherRepository.getWeather(id).listen((event) {
       event.map(
           success: (value) => add(WeatherDetailsEvent.updateWatchedWeather(weather: value.data)),

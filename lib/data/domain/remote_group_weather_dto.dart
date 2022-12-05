@@ -6,8 +6,9 @@ part 'remote_group_weather_dto.g.dart';
 
 @freezed
 class RemoteGroupWeatherDTO with _$RemoteGroupWeatherDTO {
+  @JsonSerializable(explicitToJson: true)
   const factory RemoteGroupWeatherDTO({
-    @Default([]) List<WeatherDTO> weathers
+    @JsonKey(name: 'list') @Default([]) List<WeatherDTO> weathers
 }) = _RemoteGroupWeatherDTO;
   
   factory RemoteGroupWeatherDTO.fromJson(Map<String, dynamic> json) => _$RemoteGroupWeatherDTOFromJson(json);

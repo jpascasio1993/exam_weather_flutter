@@ -11,4 +11,6 @@ class WeatherDetailsEvent with _$WeatherDetailsEvent {
   const factory WeatherDetailsEvent.updateWatchedWeather({required Weather weather}) = _WeatherDetailsEventUpdateWatchedWeather;
 
   const factory WeatherDetailsEvent.error({required Exception exception}) = _WeatherDetailsEventError;
+
+  const factory WeatherDetailsEvent.setFavorite({required int id, required bool isFavorite}) = _WeatherDetailsEventSetFavorite;
 }

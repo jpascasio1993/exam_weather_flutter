@@ -8,6 +8,7 @@ import 'package:exam_weather_flutter/data/services/weather_service.dart';
 import 'package:exam_weather_flutter/di/i_dependencies.dart';
 import 'package:exam_weather_flutter/ui/weathers/bloc/weather_bloc/weather_bloc.dart';
 import 'package:exam_weather_flutter/ui/weathers/bloc/weather_details_bloc/weather_details_bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 
 @module
@@ -60,7 +61,7 @@ abstract class CoreConfiguration implements ICoreDependencies {
   @override
   WeatherBloc weatherBloc({required IWeatherRepository weatherRepository}) => WeatherBloc(weatherRepository: weatherRepository);
 
-  @lazySingleton
+  @factory
   @override
   WeatherDetailsBloc weatherDetailsBloc({required IWeatherRepository weatherRepository}) => WeatherDetailsBloc(weatherRepository: weatherRepository);
 }
